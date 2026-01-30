@@ -1,0 +1,11 @@
+Dummy PDF content for testing resume upload.
+This is not a real PDF but should pass file extension check if I name it .pdf
+Wait, multer logic checks mimetype?
+File filter:
+        const filetypes = /pdf|doc|docx/;
+        const mimetype = filetypes.test(file.mimetype);
+        const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+
+I need to cheat the mimetype or make a real looking file structure if strict.
+But standard multer just checks the reported mimetype from the browser/client.
+In node-fetch/FormData, I need to specify content-type.
